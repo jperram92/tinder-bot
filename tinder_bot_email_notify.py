@@ -2,12 +2,21 @@ from TinderApi import Tinder
 import random
 import time
 import os
+import logging
+from datetime import datetime
 from dotenv import load_dotenv
 
 # Email Stuff
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+# Configure logging
+logging.basicConfig(
+    filename='tinder_bot.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 # Code
 load_dotenv()
@@ -20,6 +29,17 @@ emails_sent = 0
 likes_sent = 0
 passes_sent = 0
 matches_count = 0
+bot_matches_detected = 0
+
+def detect_bot(user):
+    """Basic bot detection based on profile characteristics"""
+    suspicious_keywords = ['sugar', 'venmo', 'snapchat premium', 'only.fans']
+    
+    if 'bio' not in user:
+        return False
+        
+    bio = user.get('bio', '').lower()
+    return any(keyword in bio for keyword in suspicious_keywords)
 
 def send_email_stats_update(argument="TinderBot 100 Likes Update"):
     # Declare as global to modify the variables
