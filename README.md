@@ -77,3 +77,22 @@ I tried to find where the `x-auth-token` is stored in responses. Maybe a way to 
 
 Potentially could automate re-login using Twilio or some other SMS service. Not sure how well this would work though (eg. are the phone numbers flagged?). Also, these SMS services cost money.
 Could be worth a try though, but not that ideal (don't want to accidentally break something and incur fees for no reason lol).
+
+## Testing
+
+To run the tests:
+
+1. Install development dependencies:
+```bash
+pip install -r requirements-dev.txt
+```
+
+2. Run tests:
+```bash
+pytest tests/
+```
+
+3. Run tests with coverage:
+```bash
+pytest tests/ --cov=.
+Could be worth a try though, but not that ideal (don't want to accidentally break something and incur fees for no reason lol).

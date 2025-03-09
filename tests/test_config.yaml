@@ -1,0 +1,27 @@
+test_profiles:
+  valid_users:
+    - user_id: "user123"
+      bio: "Hi, I love hiking and photography!"
+      recently_active: true
+    - user_id: "user456"
+      bio: "Coffee addict, travel enthusiast"
+      recently_active: true
+
+  bot_profiles:
+    - user_id: "bot789"
+      bio: "Check my snapchat premium"
+      recently_active: true
+    - user_id: "bot101"
+      bio: "Send me money on venmo"
+      recently_active: true
+
+email_config:
+  test_sender: "test@example.com"
+  test_password: "test_password"
+  test_receiver: "receiver@example.com"
+
+timing_config:
+  min_wait: 2
+  max_wait: 15
+  skip_probability: 0.15
+  like_ratio: 0.45
